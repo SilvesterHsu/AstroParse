@@ -1,0 +1,128 @@
+---
+Checks: '-*,
+        clang-analyzer-core.*,
+        clang-analyzer-cplusplus.*,
+        modernize-deprecated-headers,
+        modernize-make-shared,
+        modernize-make-unique,
+        modernize-redundant-void-arg,
+        modernize-use-bool-literals,
+        modernize-use-emplace,
+        modernize-use-equals-default,
+        modernize-use-nullptr,
+        modernize-use-override,
+        google-build-explicit-make-pair,
+        google-build-namespaces,
+        google-build-using-namespace,
+        google-default-arguments,
+        google-explicit-constructor,
+        google-global-names-in-headers,
+        google-readability-avoid-underscore-in-googletest-name,
+        google-readability-casting,
+        google-runtime-int,
+        readability-braces-around-statements,
+        readability-container-size-empty,
+        readability-identifier-naming.GlobalConstant,
+        readability-identifier-naming.ConstantMember,
+        readability-identifier-naming.ClassCase,
+        readability-identifier-naming.StructCase,
+        readability-identifier-naming.TypedefCase,
+        readability-identifier-naming.EnumCase,
+        readability-make-member-function-const,
+        readability-non-const-parameter,
+        readability-redundant-smartptr-get,
+        cert-dcl21-cpp,
+        bugprone-undelegated-constructor,
+        bugprone-macro-parentheses,
+        bugprone-macro-repeated-side-effects,
+        bugprone-forward-declaration-namespace,
+        bugprone-bool-pointer-implicit-conversion,
+        bugprone-misplaced-widening-cast,
+        misc-unconventional-assign-operator,
+        misc-unused-parameters'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+CheckOptions:
+  # Modernize
+  - key:             modernize-deprecated-headers
+    value:           'true'
+  - key:             modernize-make-shared
+    value:           'true'
+  - key:             modernize-make-unique
+    value:           'true'
+  - key:             modernize-redundant-void-arg
+    value:           'true'
+  - key:             modernize-use-bool-literals
+    value:           'false'
+  - key:             modernize-use-emplace
+    value:           'true'
+  - key:             modernize-use-equals-default
+    value:           'true'
+  - key:             modernize-use-nullptr
+    value:           'true'
+  - key:             modernize-use-override
+    value:           'true'
+  # Google
+  - key:             google-build-explicit-make-pair
+    value:           'true'
+  - key:             google-build-namespaces
+    value:           'true'
+  - key:             google-build-using-namespace
+    value:           'true'
+  - key:             google-default-arguments
+    value:           'true'
+  - key:             google-explicit-constructor
+    value:           'true'
+  - key:             google-global-names-in-headers
+    value:           'true'
+  - key:             google-readability-avoid-underscore-in-googletest-name
+    value:           'true'
+  - key:             google-readability-casting
+    value:           'true'
+  - key:             google-runtime-int
+    value:           'true'
+  # Readability
+  - key:             readability-braces-around-statements
+    value:           'true'
+  - key:             readability-container-size-empty
+    value:           'true'
+  - key:             readability-identifier-naming.GlobalConstant
+    value:           'kCamelCase'
+  - key:             readability-identifier-naming.ConstantMember
+    value:           'kCamelCase'
+  - key:             readability-identifier-naming.ClassCase
+    value:           'CamelCase'
+  - key:             readability-identifier-naming.StructCase
+    value:           'CamelCase'
+  - key:             readability-identifier-naming.TypedefCase
+    value:           'CamelCase'
+  - key:             readability-identifier-naming.EnumCase
+    value:           'CamelCase'
+  - key:             readability-make-member-function-const
+    value:           'true'
+  - key:             readability-non-const-parameter
+    value:           'true'
+  - key:             readability-redundant-smartptr-get
+    value:           'true'
+  # CERT
+  - key:             cert-dcl21-cpp
+    value:           'true'
+  # Bugprone
+  - key:             bugprone-undelegated-constructor
+    value:           'true'
+  - key:             bugprone-macro-parentheses
+    value:           'true'
+  - key:             bugprone-macro-repeated-side-effects
+    value:           'true'
+  - key:             bugprone-forward-declaration-namespace
+    value:           'true'
+  - key:             bugprone-bool-pointer-implicit-conversion
+    value:           'true'
+  - key:             bugprone-misplaced-widening-cast
+    value:           'true'
+  # CppCoreGuidelines
+  # Miscellaneous
+  - key:             misc-unconventional-assign-operator
+    value:           'true'
+  - key:             misc-unused-parameters
+    value:           'true'

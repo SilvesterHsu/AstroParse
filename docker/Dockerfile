@@ -88,8 +88,8 @@ RUN apt update && \
 # install zsh & fix ssh env
 WORKDIR /tmp
 RUN apt update && apt install zsh openssh-client openssh-server -y && \
-    echo "export \$(cat /proc/1/environ |tr '\\0' '\\n' | xargs)" >> /etc/profile && \
-    echo "export \$(cat /proc/1/environ |tr '\\0' '\\n' | xargs)" >> /etc/zsh/zprofile && \
+    echo "export \$(cat /proc/1/environ |tr '\\\0' '\\\n' | xargs)" >> /etc/profile && \
+    echo "export \$(cat /proc/1/environ |tr '\\\0' '\\\n' | xargs)" >> /etc/zsh/zprofile && \
     rm -rf ~/.oh-my-zsh || true && \
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o install.sh && \
     chmod +x install.sh && \
@@ -121,6 +121,10 @@ RUN apt update && \
 FROM base as final-build
 USER root
 WORKDIR /workspace
+ENV CC "clang"
+ENV CXX "clang++"
+ENV CPP "clang++ -E"
+ENV LD "clang++"
 ENV PATH $PATH:/usr/local/cuda/bin:/usr/src/tensorrt/bin
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/targets/x86_64-linux/lib:/usr/lib/llvm-20/lib
 ENV LIBRARY_PATH $LIBRARY_PATH::/usr/local/lib:/usr/local/cuda/lib64:/usr/local/cuda/targets/x86_64-linux/lib:/usr/lib/llvm-20/lib
@@ -130,6 +134,10 @@ ENV CPLUS_INCLUDE_PATH $CPLUS_INCLUDE_PATH:/usr/local/cuda/include://usr/include
 FROM dev-stage as final-dev
 USER root
 WORKDIR /workspace
+ENV CC "clang"
+ENV CXX "clang++"
+ENV CPP "clang++ -E"
+ENV LD "clang++"
 ENV PATH $PATH:/usr/local/cuda/bin:/usr/src/tensorrt/bin
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/targets/x86_64-linux/lib:/usr/lib/llvm-20/lib
 ENV LIBRARY_PATH $LIBRARY_PATH::/usr/local/lib:/usr/local/cuda/lib64:/usr/local/cuda/targets/x86_64-linux/lib:/usr/lib/llvm-20/lib
