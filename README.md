@@ -1,6 +1,7 @@
 # AstroParse — Code to Cosmic JSON 🚀
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+[![Docker Image](https://img.shields.io/docker/pulls/silvesterhsu/astroparse.svg)](https://hub.docker.com/r/silvesterhsu/astroparse)
 
 **Turn C++ code into LLM-digestible JSON – because AI deserves X-ray vision for code!**
 Powered by Clang AST dissection, Bazel/Docker industrial pipelines, and JSON that pleases both machines and humans.
@@ -43,7 +44,7 @@ Enter the build env
 
 Build the code
 ``` bash
-./build.sh
+./scripts/build.sh
 ```
 
 ------
@@ -97,7 +98,7 @@ public:
 
 1. **Fork This Repo**: Clone your personal universe branch
 2. **Code Style**: Follow `.clang-format` – follow Google style
-3. **Tests**: All PRs must survive `bazel test //...`
+3. **Tests**: All PRs must pass `./scripts/test.sh`
 
 ------
 
@@ -108,4 +109,5 @@ public:
 ------
 
 **Crafted with ❤️ and Clang by Seel.Xu**
+
 *“Any sufficiently advanced code parser is indistinguishable from magic.”* – Arthur C. Clarke (remixed)
