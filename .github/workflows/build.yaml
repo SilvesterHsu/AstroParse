@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: silvesterhsu/astroparse:build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set execute permission
+        run: chmod +x ./scripts/build.sh
+      - name: Build
+        run: ./scripts/build.sh
