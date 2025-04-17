@@ -1,0 +1,10 @@
+cc_binary(
+    name = "astroparse",
+    srcs = [
+        "astroparse.cc",
+    ],
+    deps = [
+        "//parse",
+        "@com_github_gflags_gflags//:gflags",
+    ],
+)

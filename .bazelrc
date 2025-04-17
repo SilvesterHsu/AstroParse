@@ -2,7 +2,7 @@ common --announce_rc
 
 build --cxxopt="-std=c++17"
 build --cxxopt="-gz" --cxxopt="-gdwarf-4"
-build --cxxopt="-Wall" --cxxopt="-Wextra" --cxxopt="-Werror" 
+build --cxxopt="-Wall" --cxxopt="-Wextra" --cxxopt="-Werror" --cxxopt="-Wno-error=unused-command-line-argument" --cxxopt="-Wno-unused-command-line-argument"
 build --cxxopt="-Wno-cast-function-type-mismatch"
 build --cxxopt="-Wno-unused-function" --cxxopt="-Wno-unused-parameter" # protobuf require
 build --cxxopt="-Wno-deprecated-declarations" # cuda require
