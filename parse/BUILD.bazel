@@ -1,0 +1,67 @@
+cc_library(
+    name = "parse",
+    deps = [
+        ":ast_visitor",
+        ":ast_consumer",
+        ":ast_fronten_action",
+    ],
+    visibility = [
+        "//visibility:public",
+    ],
+)
+
+cc_library(
+    name = "util",
+    srcs = [
+        "util.cc",
+    ],
+    hdrs = [
+        "util.h",
+        "function_info.h",
+    ],
+    deps = [
+        "@nlohmann_json//:json",
+        "@llvm//:clang_libs",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_library(
+    name = "ast_visitor",
+    srcs = [
+        "ast_visitor.cc",
+    ],
+    hdrs = [
+        "ast_visitor.h",
+    ],
+    deps = [
+        ":util",
+    ],
+)
+
+cc_library(
+    name = "ast_consumer",
+    srcs = [
+        "ast_consumer.cc",
+    ],
+    hdrs = [
+        "ast_consumer.h",
+    ],
+    deps = [
+        ":ast_visitor",
+    ],
+)
+
+cc_library(
+    name = "ast_fronten_action",
+    srcs = [
+        "ast_fronten_action.cc",
+    ],
+    hdrs = [
+        "ast_fronten_action.h",
+    ],
+    deps = [
+        ":ast_visitor",
+        ":ast_consumer",
+    ],
+)
