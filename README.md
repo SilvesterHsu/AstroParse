@@ -27,7 +27,7 @@ Powered by Clang AST dissection, Bazel/Docker industrial pipelines, and JSON tha
 ### Pre-built Release (For Binary Cowboys)
 
 ``` bash
-./astroparse-linux-amd64 -i your_code.cpp -o output.json  
+./astroparse-linux-amd64 your_code.cpp 
 ```
 
 ### Build from source
@@ -46,6 +46,19 @@ Build the code
 ``` bash
 ./scripts/build.sh
 ```
+
+### Generate AST json for example
+
+Gen `compile_commands.json`
+``` bash
+./scripts/update_compile_commands.sh
+```
+
+Get AST json file
+```bash
+./bazel-bin/astroparse/astroparse /AstroParse/parse/util.cc
+```
+
 
 ------
 
